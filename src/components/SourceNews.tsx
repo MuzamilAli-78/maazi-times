@@ -14,7 +14,7 @@ interface sourceData {
   icon: string;
 }
 
-const apiKey = import.meta.env.VITE_NewsAPI_KEY;
+
 
 export default function Sources() {
   const [articles, setArticles] = useState<sourceData[]>([]);
@@ -22,7 +22,7 @@ export default function Sources() {
 
   const fetchArticles = async () => {
     const res = await axios.get(
-      `https://newsdata.io/api/1/sources?apikey=${apiKey}&language=en`
+      `https://newsdata.io/api/1/sources?apikey=pub_61416fdb92d84ea094f38bd2d3156920&language=en`
     );
     const data = await res.data;
 
