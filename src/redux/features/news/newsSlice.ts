@@ -27,7 +27,7 @@ interface NewsState {
 
 export const fetchLatestNews = createAsyncThunk<{ results: newsData[]; nextPage: string | null }, string | undefined >(
   'news/latestNews',
-  async (nextPage, thunkAPI) => {
+  async (nextPage) => {
     const pageParam = nextPage ? `&page=${nextPage}` : '';
     const res = await axios.get(`https://newsdata.io/api/1/latest?apikey=${apiKey}&language=en&removeduplicate=1${pageParam}`);
     return {

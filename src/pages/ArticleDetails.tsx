@@ -9,7 +9,7 @@ import CarousalCard from "@/components/CarousalCard";
 import BlankCard from "@/components/BlankCard";
 
 export default function ArticleDetails() {
-  const { name, articleId } = useParams(); 
+  const {articleId } = useParams(); 
   const articles = useSelector((state: RootState) => state.news.articles);
   const navigate = useNavigate();
   
