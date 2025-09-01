@@ -73,7 +73,7 @@ export default function Category() {
   }, [status, dispatch]);
 
 
-  console.log("Articles in Redux:", articles.length);
+
 
   
       const filteredArticles = articles.filter((article: newsData) =>

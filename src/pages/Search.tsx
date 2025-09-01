@@ -20,7 +20,7 @@ interface newsData  {
   category: string[];
 };
 
-const apiKey = import.meta.env.VITE_NewsAPI_KEY;
+
 
 export default function Search() {
 
@@ -50,7 +50,7 @@ export default function Search() {
     setError(null);
 
     try {
-      const res = await axios.get(`https://newsdata.io/api/1/latest?apikey=${apiKey}&language=en&removeduplicate=1&q=${debouncedQuery}`);
+      const res = await axios.get(`https://newsdata.io/api/1/latest?apikey=pub_61416fdb92d84ea094f38bd2d3156920&language=en&removeduplicate=1&q=${debouncedQuery}`);
       const data = await res.data;
      
       setArticles(data.results);

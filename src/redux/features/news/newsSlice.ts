@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
 
-const apiKey = import.meta.env.VITE_NewsAPI_KEY;
+
 
 interface newsData  {
   article_id: string;
@@ -29,7 +29,7 @@ export const fetchLatestNews = createAsyncThunk<{ results: newsData[]; nextPage:
   'news/latestNews',
   async (nextPage) => {
     const pageParam = nextPage ? `&page=${nextPage}` : '';
-    const res = await axios.get(`https://newsdata.io/api/1/latest?apikey=${apiKey}&language=en&removeduplicate=1${pageParam}`);
+    const res = await axios.get(`https://newsdata.io/api/1/latest?apikey=pub_61416fdb92d84ea094f38bd2d3156920&language=en&removeduplicate=1${pageParam}`);
     return {
       results: res.data.results as newsData[],
       nextPage: res.data.nextPage || null,
