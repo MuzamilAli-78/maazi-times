@@ -1,27 +1,41 @@
+import "./App.css";
+import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 
-import './App.css'
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from 'react-router-dom'
 
+import Home from "./pages/Home";
+import Category from "./pages/Category";
+import Search from "./pages/Search";
 import RootLayout from "./layouts/RootLayout";
-import Home from './pages/Home'
-import Category from './pages/Category'
-import Search from './pages/Search'
+import ArticleDetails from "./pages/ArticleDetails";
+
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route index element={<Home />} />
-      <Route path="category" element={<Category />} />
-      <Route path="search" element={<Search />} />
+
+      <Route path="category">
+        <Route index element={<Category />} /> 
+        <Route path=":name" element={<Category />}>
+          <Route path=":articleId" element={<ArticleDetails />} />
+        </Route>
+      </Route>
+
+      <Route path="search" element={<Search />} >
+        <Route path=":articleId" element={<ArticleDetails />} />
+      </Route>
+
+
+      <Route path=":articleId" element={<ArticleDetails />} />
     </Route>
   )
 )
+ 
 
 function App() {
-
   return (
     <RouterProvider router={router} />
   );
 }
 
-export default App
+export default App;

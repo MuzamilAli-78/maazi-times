@@ -1,14 +1,21 @@
-import { Flex, Heading, Stack, Spacer, Link, IconButton, Button} from "@chakra-ui/react";
+import { Flex, Heading, Stack, Spacer, IconButton, Button, Box, Separator} from "@chakra-ui/react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 
 export default function Navbar() {
 
   const [isNavOpen , setIsNavOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const toggleMenu = ()=>{
     setIsNavOpen(!isNavOpen);
+    
+  }
+
+    const toggleLoggedIn = ()=>{
+    setIsLoggedIn(!isLoggedIn);
     
   }
 
@@ -31,21 +38,32 @@ export default function Navbar() {
         {isNavOpen? <FaTimes /> : <FaBars aria-label="ToggleMenu"  />} 
       </IconButton>
       
+      <Stack mr={{base:"0px", md:"30px"}} gap={{base:"30px", md: "30px"}} ml={{base:"0px", md:"40px"}} direction={{base:"column", md:"row"}} display={{base:isNavOpen?"flex":"none", md:"flex"}} w={{base:"full", md:"auto"}} h={{base:"100vh", md:"auto"}} justifyContent={"center"} alignItems={"center"} >
+   
+
+        <NavLink onClick={toggleMenu} to={"/"} >
+          <Box _hover={{bg: "#a778d1ff", color:"white"}} fontWeight={"bold"}  p={"8px 15px"} rounded={"sm"}>Home</Box>
+        </NavLink>
+ 
+        <NavLink onClick={toggleMenu} to={"/category"}>
+          <Box _hover={{bg: "#a778d1ff", color:"white"}} fontWeight={"bold"}  p={"8px 15px"} rounded={"sm"}>Category</Box>
+        </NavLink>
+
+        <NavLink onClick={toggleMenu} to={"/search"}>
+          <Box _hover={{bg: "#a778d1ff", color:"white"}} fontWeight={"bold"}  p={"8px 15px"} rounded={"sm"}>Search</Box>
+        </NavLink>
+
+        {isNavOpen && <Button onClick={toggleLoggedIn} ml={{base:"0px",  md:"10px"}} mr={{base:"0px",  md:"20px"}} fontWeight={"bold"} border={"1px solid black"}  p={"12px 20px"} rounded={"sm"} >
+        {isLoggedIn? "Logout" : "Login"}
+      </Button> }
       
-      <Stack mr={{base:"0px", md:"30px"}} gap={{base:"30px", md: "20px"}} direction={{base:"column", md:"row"}} display={{base:isNavOpen?"flex":"none", md:"flex"}} w={{base:"full", md:"auto"}} h={{base:"100vh", md:"auto"}} justifyContent={"center"} alignItems={"center"} >
-        <Button rounded={"lg"} size={"md"} variant={"ghost"} p={"10px"} >
-          <Link fontWeight={"bold"} fontSize={{base:"lg", md:"sm"}} href="/" >Home</Link>
-        </Button>
+      </ Stack>
+      {!isNavOpen && <><Separator display={{base:"none", md:"block"}} mr={"15px"} h={"40px"} border={"1px solid black"} color={"black"}></Separator>
+      <Button display={{base:"none", md:"block"}} onClick={toggleLoggedIn} mr={"10px"} fontWeight={"bold"} border={"1px solid black"} ml={"10px"} p={"8px 18px"} rounded={"sm"} >
+        {isLoggedIn? "Logout" : "Login"}
+      </Button> </>}
 
-        <Button rounded={"lg"} size={"md"} variant={"ghost"} p={"10px"} >
-          <Link fontWeight={"bold"} fontSize={{base:"lg", md:"sm"}} href="/category">Category</Link>
-        </Button>
 
-        <Button rounded={"lg"} size={"md"} variant={"ghost"} p={"10px"} >
-          <Link fontWeight={"bold"} fontSize={{base:"lg", md:"sm"}} href="/search">Search</Link>
-        </Button>
-
-      </Stack>
     </Flex>
   );
 }
