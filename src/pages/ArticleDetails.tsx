@@ -2,7 +2,7 @@
 import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import { Box, Button } from "@chakra-ui/react";
-import { Link as RouterLink, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 import CarousalCard from "@/components/CarousalCard";
