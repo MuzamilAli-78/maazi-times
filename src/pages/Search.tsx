@@ -1,4 +1,4 @@
-import {   Input, Heading, SimpleGrid, Spinner, Stack } from "@chakra-ui/react"
+import {   Input, Heading, SimpleGrid, Spinner, Stack, Box } from "@chakra-ui/react"
 import { useEffect, useState  } from "react"
 import axios from "axios"
 import { Outlet } from "react-router-dom";
@@ -69,6 +69,9 @@ export default function Search() {
   return (
     
     <div className="search-page">
+          <Box position="fixed" bottom={0} left={0} width="100vw" height="100vh" backgroundImage="url('src/assets/images/sample_img.jpg')" backgroundSize="cover" backgroundPosition="center" zIndex={-1} />
+              <Box position="fixed" bottom={0} left={0} width="100vw" height="100vh" bg="rgba(0, 0, 0, 0.5)" zIndex={0} />
+      
       <Stack alignItems={"center"}>
        <Heading
         display={"flex"}

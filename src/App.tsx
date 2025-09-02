@@ -1,12 +1,12 @@
 import "./App.css";
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 
-
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import Search from "./pages/Search";
 import RootLayout from "./layouts/RootLayout";
 import ArticleDetails from "./pages/ArticleDetails";
+import ProtectedRoutes from "./components/ProtectedRoutes";
 
 
 const router = createBrowserRouter(
@@ -17,7 +17,7 @@ const router = createBrowserRouter(
       <Route path="category">
         <Route index element={<Category />} /> 
         <Route path=":name" element={<Category />}>
-          <Route path=":articleId" element={<ArticleDetails />} />
+          <Route path=":articleId" element={ <ProtectedRoutes> <ArticleDetails /> </ProtectedRoutes>} />
         </Route>
       </Route>
 
@@ -25,8 +25,7 @@ const router = createBrowserRouter(
         <Route path=":articleId" element={<ArticleDetails />} />
       </Route>
 
-
-      <Route path=":articleId" element={<ArticleDetails />} />
+      <Route path=":articleId" element={ <ProtectedRoutes> <ArticleDetails /> </ProtectedRoutes>} />
     </Route>
   )
 )

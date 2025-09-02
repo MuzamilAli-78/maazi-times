@@ -1,17 +1,4 @@
-import {
-  Box,
-  Text,
-  Stack,
-  Avatar,
-  Image,
-  Button,
-  Badge,
-  Link,
-  Card,
-  CardBody,
- 
-  Flex,
-} from "@chakra-ui/react";
+import { Box, Text, Stack, Avatar, Image, Button, Badge, Link, Card, CardBody, Flex} from "@chakra-ui/react";
 import { FaEdit } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 
@@ -34,16 +21,7 @@ export default function ArticleCard(props: any) {
 
 
   return (
-    <Card.Root
-      bg={"white"}
-      maxW="sm"
-      w="full"
-      boxShadow={"dark-lg"}
-      borderRadius="lg"
-      overflow="hidden"
-      transition="transform 0.2s"
-      _hover={{ transform: "translateY(-5px)", boxShadow: "xl" }}
-    >
+    <Card.Root bg={"white"} maxW="sm" w="full" boxShadow={"dark-lg"} borderRadius="lg" overflow="hidden" transition="transform 0.2s" _hover={{ transform: "translateY(-5px)", boxShadow: "xl" }}>
    
       <Box pos="relative">
         {props.image_url === null ? <Image h={{base:"200px", md:"200px"}} w="lg" src="src\assets\images\dummy_img.jpg" fill={"context-fill"} alt="Article Image" />:
