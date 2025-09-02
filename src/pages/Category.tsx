@@ -106,9 +106,9 @@ const handleCategorySelect = (selectedValue: string[]) => {
 <Separator border={"1px solid black"} mb={"10px"} />
 
           <Flex   alignItems={"center"} justifyContent={"center"} >
-                <Heading fontSize="2xl" fontWeight="semibold">
+                <Heading fontSize={{base:"sm", md:"2xl"}} fontWeight="bold">
                   Selected Category :{" "}
-                  <Text fontWeight={"bold"} as="span" color="#a375cbff" textTransform="capitalize">
+                  <Text display={{base:"none", md:"block"}} fontWeight={"bold"} as="span" color="#a375cbff" textTransform="capitalize">
                     {name || "Not Selected"}
                   </Text>
                 </Heading>
@@ -118,7 +118,7 @@ const handleCategorySelect = (selectedValue: string[]) => {
       <Select.Root
             mr={"30px"}
             collection={categories}
-            width="320px"
+            width={{base:"120px", md:"320px"}}
             value={value}
             onValueChange={(e) => handleCategorySelect(e.value)}
             
@@ -179,28 +179,19 @@ const handleCategorySelect = (selectedValue: string[]) => {
             </SimpleGrid>
           </GridItem>
 
-          <GridItem
-            as={"aside"}
-            colSpan={{ base: 7, lg: 2 }}
-            p={{ base: "20px", lg: "10px" }}
-            borderLeftWidth={"8px"} rounded={"md"} borderColor={"#c48cf5"}
-            mb={"30px"}
-          >
-            <Heading
-              display={"flex"}
-              justifyContent={"center"}
-              textAlign={"center"}
-              as={"h1"}
-              fontSize={"4xl"}
-              fontWeight={"bold"}
-              color={"#black"}
-            >
-              Additional Sources
-            </Heading>
-            <Sources />
+          <GridItem as={"aside"} colSpan={{ base: 7, lg: 2 }} p={{ base: "20px", lg: "10px" }} borderTopWidth={{base:"8px", md:"0px"}} 
+              mx={{base:"8px", md:"0px"}} borderLeftWidth={{base:"0px", md:"8px"}} rounded={"md"} borderColor={"#c48cf5"} mb={"30px"}>
+                
+                <Heading display={"flex"} justifyContent={"center"} textAlign={"center"} as={"h1"} fontSize={"4xl"} fontWeight={"bold"} color={"#black"}>
+                  Additional Sources
+                </Heading>
+
+                <Sources />
+
           </GridItem>
+
         </Grid>
-      )}
+)}
 
      
 

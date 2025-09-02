@@ -98,7 +98,7 @@ export default function Home() {
         overflow={'auto'}
         
       >
-        {articles.slice(0,5).map((news: newsData) => (
+        {articles.slice(0,9).map((news: newsData) => (
           <FeatureCard
             key={news.article_id}
             article_id={news.article_id}

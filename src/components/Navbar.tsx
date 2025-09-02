@@ -9,6 +9,8 @@ export default function Navbar() {
   const [isNavOpen , setIsNavOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
+
+
   const toggleMenu = ()=>{
     setIsNavOpen(!isNavOpen);
     
@@ -29,7 +31,7 @@ export default function Navbar() {
       align={"center"}
       wrap={"wrap"}
     >
-      <Heading as={"h1"} ml={"30px"} fontSize={"2xl"} fontWeight={"bold"} color={"#003B36"}>
+      <Heading as={"h1"} ml={"30px"} fontSize={"2xl"} fontWeight={"bold"} color={"#black"}>
         Maazi Times
       </Heading>
       <Spacer />
