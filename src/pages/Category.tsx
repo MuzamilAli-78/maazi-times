@@ -106,9 +106,9 @@ const handleCategorySelect = (selectedValue: string[]) => {
 <Separator border={"1px solid black"} mb={"10px"} />
 
           <Flex   alignItems={"center"} justifyContent={"center"} >
-                <Heading fontSize={{base:"sm", md:"2xl"}} fontWeight="bold">
+                <Heading fontSize={{base:"sm", md:"xl"}} fontWeight="bold">
                   Selected Category :{" "}
-                  <Text display={{base:"none", md:"block"}} fontWeight={"bold"} as="span" color="#a375cbff" textTransform="capitalize">
+                  <Text display={{base:"none", md:"block"}} fontWeight={"bold"}  color="#a375cbff" textTransform="capitalize">
                     {name || "Not Selected"}
                   </Text>
                 </Heading>
@@ -118,7 +118,7 @@ const handleCategorySelect = (selectedValue: string[]) => {
       <Select.Root
             mr={"30px"}
             collection={categories}
-            width={{base:"120px", md:"320px"}}
+            width={{base:"120px", md:"280px"}}
             value={value}
             onValueChange={(e) => handleCategorySelect(e.value)}
             
