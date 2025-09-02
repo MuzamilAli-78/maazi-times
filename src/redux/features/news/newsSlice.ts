@@ -25,11 +25,13 @@ interface NewsState {
   nextPage: string | null
 }
 
+const apiKey = import.meta.env.VITE_NewsAPI_KEY;
+
 export const fetchLatestNews = createAsyncThunk<{ results: newsData[]; nextPage: string | null }, string | undefined >(
   'news/latestNews',
   async (nextPage) => {
     const pageParam = nextPage ? `&page=${nextPage}` : '';
-    const res = await axios.get(`https://newsdata.io/api/1/latest?apikey=pub_61416fdb92d84ea094f38bd2d3156920&language=en&removeduplicate=1${pageParam}`);
+    const res = await axios.get(`https://newsdata.io/api/1/latest?apikey=${apiKey}&language=en&removeduplicate=1${pageParam}`);
     return {
       results: res.data.results as newsData[],
       nextPage: res.data.nextPage || null,
@@ -58,7 +60,10 @@ const newsSlice = createSlice({
       })
       .addCase(fetchLatestNews.fulfilled, (state, action) => {
         state.status = 'succeeded'
-        state.articles = [...state.articles, ...action.payload.results];
+        const existingIds = new Set(state.articles.map(article => article.article_id));
+        const newUniqueArticles = action.payload.results.filter(article => !existingIds.has(article.article_id));
+
+        state.articles = [...state.articles, ...newUniqueArticles];
         state.nextPage = action.payload.nextPage;
       })
       .addCase(fetchLatestNews.rejected, (state, action) => {

@@ -82,6 +82,7 @@ export default function Category() {
 
 const handleCategorySelect = (selectedValue: string[]) => {
     setValue(selectedValue);
+    console.log(selectedValue, "SelectedValue")
     const category = selectedValue[0]; 
     if (category) {
       navigate(`/category/${category}`);

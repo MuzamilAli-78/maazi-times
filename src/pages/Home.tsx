@@ -42,6 +42,7 @@ export default function Home() {
     (state: RootState) => state.news
   );
 
+  
   useEffect(() => {
     if (status === "idle") {
       dispatch(fetchLatestNews());
@@ -132,9 +133,9 @@ export default function Home() {
         gap={10}
         m={"30px"}
       >
-        {articles.map((news: newsData) => (
+        {articles.map((news: newsData, index) => (
           <ArticleCard
-            key={news.article_id}
+            key={index}
             article_id={news.article_id}
             title={news.title}
             link={news.link}

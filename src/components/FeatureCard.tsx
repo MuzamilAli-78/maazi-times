@@ -13,7 +13,7 @@ export default function FeatureCard(props:any) {
 
             <CardHeader  bg={"gray.100"} mt={-6} mx={-6} mb={2} pos={"relative"}>
                 {props.image_url === null ? 
-                    <Image h={{base:"150px", md:"200px"}} w="lg" src="src\assets\images\dummy_img.jpg" fill={"context-fill"} alt="Article Image" />:
+                    <Image h={{base:"150px", md:"200px"}} w="lg" src="src/assets/images/fallback_img.jpg" fill={"context-fill"} alt="Article Image" />:
 
                     <Image h={{base:"150px", md:"200px"}} w="lg" src={props.image_url} fill={"context-fill"} alt="Article Image" />}
                     

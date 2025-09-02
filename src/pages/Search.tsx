@@ -1,4 +1,4 @@
-import {   Input, Heading, SimpleGrid, Spinner, Stack, Box } from "@chakra-ui/react"
+import {   Input, Heading, SimpleGrid, Spinner, Stack } from "@chakra-ui/react"
 import { useEffect, useState  } from "react"
 import axios from "axios"
 import { Outlet } from "react-router-dom";
@@ -24,6 +24,7 @@ interface newsData  {
 
 export default function Search() {
 
+  const apiKey = import.meta.env.VITE_NewsAPI_KEY;
 
   const [query, setQuery] = useState('');
   const [debouncedQuery, setDebouncedQuery] = useState('');
@@ -50,7 +51,7 @@ export default function Search() {
     setError(null);
 
     try {
-      const res = await axios.get(`https://newsdata.io/api/1/latest?apikey=pub_61416fdb92d84ea094f38bd2d3156920&language=en&removeduplicate=1&q=${debouncedQuery}`);
+      const res = await axios.get(`https://newsdata.io/api/1/latest?apikey=${apiKey}&language=en&removeduplicate=1&q=${debouncedQuery}`);
       const data = await res.data;
      
       setArticles(data.results);
@@ -69,9 +70,7 @@ export default function Search() {
   return (
     
     <div className="search-page">
-          <Box position="fixed" bottom={0} left={0} width="100vw" height="100vh" backgroundImage="url('src/assets/images/sample_img.jpg')" backgroundSize="cover" backgroundPosition="center" zIndex={-1} />
-              <Box position="fixed" bottom={0} left={0} width="100vw" height="100vh" bg="rgba(0, 0, 0, 0.5)" zIndex={0} />
-      
+
       <Stack alignItems={"center"}>
        <Heading
         display={"flex"}

@@ -29,10 +29,6 @@ export default function Navbar() {
       bg={"#c48cf5"}
       align={"center"}
       wrap={"wrap"}
-      w={"full"}
-      position={"fixed"}
-      zIndex={999}
-      top={0}
     >
       <Heading as={"h1"} ml={"30px"} fontSize={"2xl"} fontWeight={"bold"} color={"#black"}>
         Maazi Times

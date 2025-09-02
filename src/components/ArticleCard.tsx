@@ -19,12 +19,11 @@ export default function ArticleCard(props: any) {
   };
 
 
-
   return (
     <Card.Root bg={"white"} maxW="sm" w="full" boxShadow={"dark-lg"} borderRadius="lg" overflow="hidden" transition="transform 0.2s" _hover={{ transform: "translateY(-5px)", boxShadow: "xl" }}>
    
       <Box pos="relative">
-        {props.image_url === null ? <Image h={{base:"200px", md:"200px"}} w="lg" src="src\assets\images\dummy_img.jpg" fill={"context-fill"} alt="Article Image" />:
+        {props.image_url === null ? <Image h={{base:"200px", md:"200px"}} w="lg" src="src/assets/images/fallback_img.jpg" fill={"context-fill"} alt="Article Image" />:
                     <Image h={{base:"200px", md:"200px"}} w="lg" src={props.image_url} fill={"context-fill"} alt="Article Image" />}
 
         <Flex pos="absolute" top="10px" left="10px" wrap="wrap" gap="2">
