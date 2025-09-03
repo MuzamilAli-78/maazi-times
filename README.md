@@ -20,6 +20,7 @@ The app fetches live news from [NewsData.io API](https://newsdata.io/) and provi
 ---
 
 ## 🗂️ Project Structure
+```
 src/
  ├─ assets/images/        # static assets like images, logos, and placeholders
  ├─ components/           # reusable UI components
@@ -29,7 +30,7 @@ src/
  ├─ redux/                # state management with Redux Toolkit (slices, store, persistence)
  ├─ App.tsx               # main router configuration and route definitions
  ├─ main.tsx              # application entry point, providers setup (Redux, Clerk, Chakra)
-
+```
 
 ---
 
