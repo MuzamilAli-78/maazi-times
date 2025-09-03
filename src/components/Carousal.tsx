@@ -36,9 +36,10 @@ export default function Carousel({ articles }: { articles: NewsData[] }) {
   const [slider, setSlider] = useState<Slider | null>(null)
   const top = useBreakpointValue({ base: '85%', md: '50%' })
   const side = useBreakpointValue({ base: '10px', md: '40px' })
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   return (
-    <Box position={'relative'} height={'600px'} width={'full'} overflow={'hidden'}>
+    <Box position={'relative'} width={'full'} overflow={'hidden'}>
       <link
         rel="stylesheet"
         type="text/css"
@@ -50,7 +51,7 @@ export default function Carousel({ articles }: { articles: NewsData[] }) {
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
 
-    
+    {!isMobile && <>
     <Button
     aria-label="left-arrow"
     variant="ghost"
@@ -68,6 +69,7 @@ export default function Carousel({ articles }: { articles: NewsData[] }) {
     >
     <FaArrowAltCircleLeft color="white" size={24} />
     </Button>
+ 
 
     <Button
     aria-label="right-arrow"
@@ -86,13 +88,14 @@ export default function Carousel({ articles }: { articles: NewsData[] }) {
     >
     <FaArrowAltCircleRight color="white" size={24} />
     </Button> 
- 
+    </>}
 
       
       <Slider {...settings} ref={(s) => setSlider(s)}>
         {articles.map((article) => (
           <CarousalCard
             key={article.article_id}
+            article_id={article.article_id}
             image_url={article.image_url}
             title={article.title}
             pubDate={article.pubDate}

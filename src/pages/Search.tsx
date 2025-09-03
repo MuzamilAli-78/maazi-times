@@ -1,9 +1,9 @@
-import {   Input, Heading, SimpleGrid, Spinner, Stack } from "@chakra-ui/react"
+import {   Input, Heading, Spinner, Stack, Flex } from "@chakra-ui/react"
 import { useEffect, useState  } from "react"
 import axios from "axios"
 import { Outlet } from "react-router-dom";
 import BlankCard from "@/components/BlankCard"
-import FeatureCard from "@/components/FeatureCard"
+import NewsCard from "@/components/NewsCard";
 
 interface newsData  {
   article_id: string;
@@ -71,21 +71,12 @@ export default function Search() {
     
     <div className="search-page">
 
-      <Stack alignItems={"center"}>
-       <Heading
-        display={"flex"}
-        justifyContent={"center"}
-        textAlign={"center"}
-        as={"h1"}
-        mt={"30px"}
-        fontSize={"4xl"}
-        fontWeight={"bold"}
-        color={"#black"}
-      >
-        Search News
-      </Heading>
+      <Stack mb={"25px"} alignItems={"center"}>
+        <Heading display={"flex"} justifyContent={"center"} textAlign={"center"} as={"h1"} mt={"55px"} fontFamily={"arial"} textStyle={{base:"2xl", md:"3xl"}} color={"white"}>
+          Search News
+        </Heading>
       
-        <Input border={"1px solid black"} width={"70%"} m={"30px"} p={"10px"} onChange={(e) => setQuery(e.target.value)} placeholder="Search articles..." ></Input>
+        <Input fontFamily={"arial"} rounded={"lg"} fontSize={{ base: "md", md: "md"}} bg={"gray.200"} border={"1px solid white"} width={{base:"80%",md:"60%"}} m={{base:"15px", md:"25px"}} p={{base:"10px",md:"15px"}} onChange={(e) => setQuery(e.target.value)} placeholder="Search articles..." ></Input>
    
       </Stack>
 
@@ -95,20 +86,20 @@ export default function Search() {
 
 
       <Outlet />
-        <SimpleGrid minChildWidth={{base:"260px" ,md:"300px"}} gap={10} m={"30px"} >
-            {articles.map((news:newsData,index) =>(
-                <FeatureCard
-                key={index}
-                title={news.title}
-                link={news.link}
-                category={news.category}
-                pubDate={news.pubDate}
-                    image_url={news.image_url}
-                    source_name={news.source_name}
-                    source_icon={news.source_icon}
-                />
-            ))}
-        </SimpleGrid>
+
+        <Flex flexDirection={"column"} >
+          {articles.map((news:newsData,index) =>(
+                  <NewsCard
+                  key={index}
+                  title={news.title}
+                  link={news.link}
+                  description={news.description}
+                  pubDate={news.pubDate}
+                  image_url={news.image_url}
+                  />
+
+              ))}
+        </Flex>
 
     </div>
   )

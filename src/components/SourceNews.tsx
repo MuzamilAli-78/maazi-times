@@ -1,4 +1,4 @@
-import {  Separator,  SimpleGrid} from "@chakra-ui/react";
+import { Separator,  SimpleGrid} from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 import axios from "axios";
@@ -12,17 +12,18 @@ interface sourceData {
   category: string[];
   total_article: string;
   icon: string;
+  last_fetch: string;
 }
-
 
 
 export default function Sources() {
   const [articles, setArticles] = useState<sourceData[]>([]);
+  const apiKey = import.meta.env.VITE_NewsAPI_KEY;
 
 
   const fetchArticles = async () => {
     const res = await axios.get(
-      `https://newsdata.io/api/1/sources?apikey=pub_61416fdb92d84ea094f38bd2d3156920&language=en`
+      `https://newsdata.io/api/1/sources?apikey=${apiKey}&language=en`
     );
     const data = await res.data;
 
@@ -39,10 +40,14 @@ export default function Sources() {
       <SimpleGrid
         minChildWidth={{ base: "260px", md: "300px" }}
         gap={10}
-        m={"30px"}
+        mt={"20px"}
+        mx={"auto"}
+        p={"20px"}
       >
+
         {articles.slice(0, 5).map((source: sourceData) => (
           <>
+     
           <SideNews
             key={source.id}
             id={source.id}
@@ -51,8 +56,10 @@ export default function Sources() {
             description={source.description}
             category={source.category}
             icon={source.icon}
+            last_fetch={source.last_fetch}
             />
-            <Separator display={{base:"none", md:"block"}}></Separator>
+            <Separator  ></Separator>
+           
             </>
         ))}
       </SimpleGrid>

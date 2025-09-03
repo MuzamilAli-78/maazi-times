@@ -1,4 +1,4 @@
-import {Center, Text, Stack, Avatar,  Link, Card} from "@chakra-ui/react";
+import {Center, Text, Stack, Avatar,  Link, Card, VStack} from "@chakra-ui/react";
 
 
 export default function SideNews(props:any) {
@@ -7,28 +7,34 @@ export default function SideNews(props:any) {
 
 
     <Center>
-        <Card.Root w={"full"} boxShadow={"2xl"} rounded={"md"} p={4} overflow={"hidden"}>
+        <Card.Root border={"none"} bg={"gray.800"} w={"full"}  rounded={"md"} p={"15px"} overflow={"hidden"}>
 
             <Link flex={1} href={props.url} target='_blank'>
 
             
 
-                        <Stack direction={"column"} gap={2} fontSize={"sm"}>
+            <Stack direction={"column"} fontSize={"sm"}>
 
-                    <Stack mt={4} direction={"row"} gap={4} align={"center"}>
-                        <Avatar.Root mr={"15px"}>
+                    <Stack mt={2} direction={"row"} gap={4} align={"center"}>
+                        <Avatar.Root mr={"5px"}>
                             <Avatar.Fallback name={"Source Icon"} />
                             <Avatar.Image src={props.icon} />
                         </Avatar.Root>
 
-                        <Text fontWeight={600}>{props.name}</Text>
-    
+                        <VStack align={"start"} gap={1}>
+
+                        <Text fontFamily={"arial"} color={"white"} fontWeight={"semibold"}>{props.name}</Text>
+                        
+                        <Text fontSize={"sm"} color="gray.400">
+                            {new Date(props.last_fetch).toLocaleDateString()}
+                        </Text>
+                        </VStack>
 
                     </Stack>
 
                     
 
-                        <Text  mt={3} fontFamily={"serif"} color={"gray.700"} fontSize={{base:"sm", md:"md"}}>
+                        <Text fontFamily={"arial"}  color={"gray.400"} mt={3}   fontSize={{base:"sm", md:"md"}}>
                                 {props.description}
                             </Text>
                         </Stack>

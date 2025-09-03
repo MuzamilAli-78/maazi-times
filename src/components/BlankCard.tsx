@@ -7,11 +7,12 @@ export default function BlankCard(props: any) {
       <Card.Root
         maxW="md"
         w="100%"
-        bg="gray.50"
+        bg="gray.200"
         boxShadow="md"
         borderRadius="lg"
         textAlign="center"
         p={6}
+       
       >
         <CardBody>
           <Flex

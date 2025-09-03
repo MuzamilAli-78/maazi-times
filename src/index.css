@@ -1,7 +1,9 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: "BBC Reith Serif";
-    
+    font-family: 'Noto Serif SC Variable', serif;
 }
 
+body{
+    background: #27272a;
+}

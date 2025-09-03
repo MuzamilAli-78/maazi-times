@@ -1,14 +1,12 @@
 import { useEffect } from "react";
 import {
   Separator,
-  Heading,
-  SimpleGrid,
   Text,
   Button,
   Spinner,
   Box,
   Flex,
-  Center,
+  Center
 } from "@chakra-ui/react";
 
 import Carousal from "../components/Carousal" 
@@ -17,8 +15,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchLatestNews } from "../redux/features/news/newsSlice";
 import type { RootState, AppDispatch } from "../redux/store";
 
-import ArticleCard from "../components/ArticleCard";
-import FeatureCard from "@/components/FeatureCard";
+import NewsCard from "@/components/NewsCard";
 
 interface newsData {
   article_id: string;
@@ -62,23 +59,12 @@ export default function Home() {
 
   return (
     <>
-    
-      <Heading
-        display={"flex"}
-        justifyContent={"center"}
-        textAlign={"center"}
-        as={"h1"}
-        my={"30px"}
-        fontSize={{base:"2xl",md:"4xl"}}
-        fontWeight={"bold"}
-        color={"red"}
-      >
-        News Headlines 
-      </Heading>
+      <Box h={"100vh"} >
 
-      <Carousal articles={articles} />
+        <Carousal articles={articles} />
+      </Box>
 
-      <Box mt={"25px"} ml={"20px"} display={"flex"} fontSize={{base:"sm", md:"lg"}} fontWeight={"bold"} 
+      {/* <Box mt={"25px"} ml={"20px"} display={"flex"} fontSize={{base:"sm", md:"lg"}} fontWeight={"bold"} 
           justifyContent={"center"} alignItems={"center"} textAlign={"center"} h={{base:"30px", md:"40px"}} w={{base:"120px", md:"160px"}} bg={"red"} color={"white"}>
 
       <Text >Featured News</Text>
@@ -87,8 +73,7 @@ export default function Home() {
         ml={"20px"}
         mb={6}
         w={{base:"87%", md:"97%"}}
-        border={"1px solid black"}
-        color={"black"}
+
       ></Separator>
 
 
@@ -113,49 +98,47 @@ export default function Home() {
             source_icon={news.source_icon}
           />
         ))}
-      </Flex>
+      </Flex> */}
    
       <Box mt={"25px"} ml={"20px"} display={"flex"} fontSize={{base:"sm", md:"lg"}} fontWeight={"bold"} 
           justifyContent={"center"} alignItems={"center"} textAlign={"center"} h={{base:"30px", md:"40px"}} w={{base:"120px", md:"160px"}} bg={"red"} color={"white"}>
 
-      <Text >Top Stories</Text>
+      <Text fontWeight={"semibold"} fontFamily={"arial"} >Top Stories</Text>
       </Box>
       <Separator
         ml={"20px"}
         mb={6}
         w={{base:"87%", md:"97%"}}
-        border={"1px solid black"}
-        color={"black"}
+   
       ></Separator>
 
-      <SimpleGrid
-        minChildWidth={{ base: "260px", md: "300px" }}
-        gap={10}
-        m={"30px"}
-      >
-        {articles.map((news: newsData, index) => (
-          <ArticleCard
-            key={index}
-            article_id={news.article_id}
-            title={news.title}
-            link={news.link}
-            category={news.category}
-            pubDate={news.pubDate}
-            image_url={news.image_url}
-            source_name={news.source_name}
-            source_icon={news.source_icon}
-          />
-        ))}
-      </SimpleGrid>
+     
+
+      <Flex flexDirection={"column"} >
+              {articles.map((news:newsData,index) =>(
+                      <NewsCard
+                      key={index}
+                      title={news.title}
+                      link={news.link}
+                      description={news.description}
+                      pubDate={news.pubDate}
+                      image_url={news.image_url}
+                      source_name={news.source_name}
+                      />
+      
+                     
+                      
+                  ))}
+              </Flex>
 
       {status === "loading" && articles.length > 0 ? (
-        <Spinner size="lg" color="teal.500" mx="auto" display="block" mb={10} />
+        <Spinner size="lg" color="teal.500" mx="auto" display="block" pb={10} />
       ) : (
         nextPage && (
 
-          <Center>
+          <Center mt={"30px"}>
             
-                <Button onClick={handleLoadMore} mx={"auto"} mb={"30px"} fontWeight={"bold"} border={"1px solid black"} p={"15px 25px"} rounded={"sm"} >
+                <Button _hover={{bg: "gray.700", color:"white"}} fontSize={"md"} fontFamily={"arial"} bg={"gray.900"} color={"white"} onClick={handleLoadMore} mx={"auto"} mb={"30px"} fontWeight={"bold"} p={"15px 25px"} rounded={"sm"} >
                   Load More
                 </Button> 
           </Center>
