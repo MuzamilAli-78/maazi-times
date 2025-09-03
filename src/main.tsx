@@ -17,7 +17,7 @@ if (!PUBLISHABLE_KEY) {
 }
 
 createRoot(document.getElementById("root")!).render(
-  // <StrictMode>
+  <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY}>
       <UIProvider>
         <ReduxProvider store={store}>
@@ -27,5 +27,5 @@ createRoot(document.getElementById("root")!).render(
         </ReduxProvider>
       </UIProvider>
     </ClerkProvider>
-  // </StrictMode>
+   </StrictMode>
 );
