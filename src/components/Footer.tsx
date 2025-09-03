@@ -23,7 +23,7 @@ export default function Footer() {
     <Box bg="gray.900" color="gray.300" mt={12} py={8} px={{ base: 4, md: 12 }}>
 
         <Center mb={"15px"}>
-            <Image alt="Logo" h={{ base: "30px", md: "30px"}} src="../src/assets/images/logo.png"></Image>
+            <Image alt="Logo" h={{ base: "30px", md: "30px"}} src="../assets/images/logo.png"></Image>
         </Center>
 
         <Flex direction={"row"} justifyContent={"center"} alignItems={"center"} wrap="wrap" gap={3} fontSize="md" mb={4}>

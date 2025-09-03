@@ -24,7 +24,7 @@ export default function ArticleCard(props: any) {
     <Card.Root border={"none"} bg={"gray.800"} maxW="sm" w="full" boxShadow={"0px 0px 1px #a1a1aa"} borderRadius="lg" overflow="hidden" transition="transform 0.2s" _hover={{ transform: "translateY(-5px)", boxShadow:"1px 2px 4px #a1a1aa" }}>
    
       <Box pos="relative">
-        {props.image_url === null ? <Image h={{base:"200px", md:"200px"}} w="lg" src="../src/assets/images/fallback_img.jpg" fill={"context-fill"} alt="Article Image" />:
+        {props.image_url === null ? <Image h={{base:"200px", md:"200px"}} w="lg" src="../assets/images/fallback_img.jpg" fill={"context-fill"} alt="Article Image" />:
                     <Image h={{base:"200px", md:"200px"}} w="lg" src={props.image_url} fill={"context-fill"} alt="Article Image" />}
 
    
