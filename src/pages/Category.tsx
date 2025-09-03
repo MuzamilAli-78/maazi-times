@@ -98,7 +98,7 @@ export default function Category() {
       );
 
       if (filteredArticles.length > 0) {
-        return { category: cat, articles: filteredArticles }; // <-- fixed
+        return { category: cat, articles: filteredArticles }; 
       }
       return null;
   }).filter(Boolean) as filteredData[];

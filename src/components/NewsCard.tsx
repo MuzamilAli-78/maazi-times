@@ -14,7 +14,7 @@ export default function NewsCard(props:any) {
         <Flex ml={{md:"20px"}} gap={{base:"18px", md:"28px"}}  flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
 
           {props.image_url === null ? 
-            <Image w={{ base: "100px", md: "300px" }} h={{ base: "100px", md: "200px" }} objectFit="cover" borderRadius="md" src="src\assets\images\fallback_img.jpg" alt={"Article Image"}/> :
+            <Image w={{ base: "100px", md: "300px" }} h={{ base: "100px", md: "200px" }} objectFit="cover" borderRadius="md" src="../src/assets/images/fallback_img.jpg" alt={"Article Image"}/> :
             <Image w={{ base: "100px", md: "300px" }} h={{ base: "100px", md: "200px" }} objectFit="cover" borderRadius="md" src={props.image_url} alt={"Article Image"}/>
           }
 
