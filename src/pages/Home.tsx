@@ -47,7 +47,7 @@ export default function Home() {
   }, [status, dispatch]);
 
   if (status === "loading" && articles.length === 0) {
-    return <p>Loading...</p>;
+    return <Center> <Spinner size="lg" color="teal.500" mx="auto" display="block" pb={10} /> </Center>;
   }
   if (status === "failed") return <p>Error: {error}</p>;
 
