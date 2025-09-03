@@ -21,14 +21,14 @@ The app fetches live news from [NewsData.io API](https://newsdata.io/) and provi
 
 ## 🗂️ Project Structure
 src/
-├─ assets/images/ # static images & logos
-├─ components/ # reusable UI components
-│ └─ ui/ # Chakra UI helpers (color-mode, toaster, etc.)
-├─ layouts/ # Layout wrappers (RootLayout with Navbar/Footer)
-├─ pages/ # Page-level components (Home, Category, Search, etc.)
-├─ redux/ # State management (newsSlice, store)
-├─ App.tsx # Router & route definitions
-├─ main.tsx # App entry, Providers setup
+├─ assets/images/ # static images & logos 
+├─ components/ # reusable UI components 
+│ └─ ui/ # Chakra UI helpers (color-mode, toaster, etc.) 
+├─ layouts/ # Layout wrappers (RootLayout with Navbar/Footer) 
+├─ pages/ # Page-level components (Home, Category, Search, etc.) 
+├─ redux/ # State management (newsSlice, store) 
+├─ App.tsx # Router & route definitions 
+├─ main.tsx # App entry, Providers setup 
 
 
 
