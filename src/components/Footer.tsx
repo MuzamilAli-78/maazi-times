@@ -2,6 +2,7 @@ import { Box, Flex, Text, Link, HStack, Separator, Center, Image} from "@chakra-
 import { useNavigate } from "react-router-dom";
 import { FaInstagram, FaLinkedin} from "react-icons/fa6";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import logo from "../assets/images/logo.png"
 
 export default function Footer() {
 
@@ -23,7 +24,7 @@ export default function Footer() {
     <Box bg="gray.900" color="gray.300" mt={12} py={8} px={{ base: 4, md: 12 }}>
 
         <Center mb={"15px"}>
-            <Image alt="Logo" h={{ base: "30px", md: "30px"}} src="../assets/images/logo.png"></Image>
+            <Image alt="Logo" h={{ base: "30px", md: "30px"}} src={logo}></Image>
         </Center>
 
         <Flex direction={"row"} justifyContent={"center"} alignItems={"center"} wrap="wrap" gap={3} fontSize="md" mb={4}>

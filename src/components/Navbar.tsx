@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useBreakpointValue } from "@chakra-ui/react";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import  logo from "../assets/images/logo.png"
 
 
 export default function Navbar() {
@@ -30,7 +31,7 @@ export default function Navbar() {
   return (
     <Flex borderBottomWidth={"2px"} as={"nav"} p={"15px 0px 15px 0px"} justifyContent={"centre"} alignItems={"center"} bg={"gray.800"} align={"center"} wrap={"wrap"}>
    
-      <Image alt="Logo" ml={"30px"} h={{ base: "30px", md: "30px"}} src="../assets/images/logo.png" />
+      <Image alt="Logo" ml={"30px"} h={{ base: "30px", md: "30px"}} src={logo} />
 
       <Spacer />
 
