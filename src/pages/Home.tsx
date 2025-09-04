@@ -47,7 +47,7 @@ export default function Home() {
   }, [status, dispatch]);
 
   if (status === "loading" && articles.length === 0) {
-    return <Center> <Spinner size="lg" color="teal.500" mx="auto" display="block" pb={10} /> </Center>;
+    return <Center><Spinner size="lg" color="teal.500" mx="auto" display="block" /></Center> ;
   }
   if (status === "failed") return <p>Error: {error}</p>;
 
@@ -132,7 +132,7 @@ export default function Home() {
               </Flex>
 
       {status === "loading" && articles.length > 0 ? (
-        <Spinner size="lg" color="teal.500" mx="auto" display="block" pb={10} />
+        <Spinner size="lg" color="teal.500" mx="auto" display="block" />
       ) : (
         nextPage && (
 
